@@ -87,11 +87,17 @@ body {
   scrollbar-color: var(--color-accent-deep) var(--color-paper);
 }
 
-/* Mobile: thicker, easier to grab */
+/* Mobile: thicker, easier to grab; horizontal scrollbars hidden (touch-scroll still works) */
 @media (max-width: 639px) {
   ::-webkit-scrollbar {
     width: 14px;
     height: 12px;
+  }
+  ::-webkit-scrollbar:horizontal {
+    display: none;
+  }
+  * {
+    scrollbar-width: none;
   }
 }
 
