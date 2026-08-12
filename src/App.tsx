@@ -165,7 +165,7 @@ export default function App() {
         type="button"
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         aria-label="Back to top"
-        className={`fixed bottom-5 right-5 z-30 flex h-11 w-11 items-center justify-center rounded-full border border-accent-deep bg-accent text-ink shadow-md transition-all sm:hidden ${
+        className={`fixed bottom-5 right-5 z-30 flex h-11 w-11 items-center justify-center rounded-full border border-accent-deep bg-accent text-ink shadow-md transition-all ${
           showTop ? 'opacity-100' : 'pointer-events-none opacity-0'
         }`}
       >
