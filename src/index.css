@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  /* Pastel pink accent */
+  --color-accent: #f9c9dc;
+  --color-accent-deep: #f3aecb;
+  --color-accent-tint: #fdf2f8;
+  --color-accent-ink: #be4d8d;
+  --color-accent-ink-strong: #9e3a73;
+
+  /* Neutrals (zinc) */
+  --color-ink: #18181b;
+  --color-ink-soft: #3f3f46;
+  --color-muted: #71717a;
+  --color-faint: #a1a1aa;
+  --color-hairline: #e4e4e7;
+  --color-paper: #fafafa;
+  --color-card: #ffffff;
+
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+    monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-paper text-ink font-sans antialiased;
+  font-size: 14px;
+  line-height: 1.5;
+  font-feature-settings: "cv02", "cv03", "cv04";
+}
+
+::selection {
+  @apply bg-accent text-ink;
+}
+
+/* Thin, subtle scrollbars for horizontal chip rows */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Keep the page feel of a dev-docs page: max width column */
+.page {
+  @apply mx-auto w-full max-w-3xl px-4 sm:px-6;
+}

@@ -1,0 +1,44 @@
+{
+  "services": [
+    {
+      "id": "iam",
+      "name": "IAM",
+      "fullName": "AWS Identity and Access Management",
+      "eventSourcePrefix": "iam.amazonaws.com",
+      "docsUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html",
+      "virtual": false
+    },
+    {
+      "id": "sts",
+      "name": "STS",
+      "fullName": "AWS Security Token Service",
+      "eventSourcePrefix": "sts.amazonaws.com",
+      "docsUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html",
+      "virtual": false
+    },
+    {
+      "id": "ec2",
+      "name": "EC2",
+      "fullName": "Amazon Elastic Compute Cloud",
+      "eventSourcePrefix": "ec2.amazonaws.com",
+      "docsUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/using-cloudtrail.html",
+      "virtual": false
+    },
+    {
+      "id": "vpc",
+      "name": "VPC",
+      "fullName": "Amazon Virtual Private Cloud",
+      "eventSourcePrefix": "ec2.amazonaws.com",
+      "docsUrl": "https://docs.aws.amazon.com/vpc/latest/userguide/",
+      "virtual": true
+    },
+    {
+      "id": "rds",
+      "name": "RDS",
+      "fullName": "Amazon Relational Database Service",
+      "eventSourcePrefix": "rds.amazonaws.com",
+      "docsUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/logging-using-cloudtrail.html",
+      "virtual": false
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "services": [
+    {
+      "id": "iam",
+      "name": "IAM",
+      "fullName": "AWS Identity and Access Management",
+      "eventSourcePrefix": "iam.amazonaws.com",
+      "docsUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html",
+      "operationsUrl": "https://docs.aws.amazon.com/IAM/latest/APIReference/API_Operations.html",
+      "pagePrefix": "https://docs.aws.amazon.com/IAM/latest/APIReference/"
+    },
+    {
+      "id": "sts",
+      "name": "STS",
+      "fullName": "AWS Security Token Service",
+      "eventSourcePrefix": "sts.amazonaws.com",
+      "docsUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html",
+      "operationsUrl": "https://docs.aws.amazon.com/STS/latest/APIReference/API_Operations.html",
+      "pagePrefix": "https://docs.aws.amazon.com/STS/latest/APIReference/"
+    },
+    {
+      "id": "ec2",
+      "name": "EC2",
+      "fullName": "Amazon Elastic Compute Cloud",
+      "eventSourcePrefix": "ec2.amazonaws.com",
+      "docsUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/using-cloudtrail.html",
+      "operationsUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Operations.html",
+      "pagePrefix": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/"
+    },
+    {
+      "id": "vpc",
+      "name": "VPC",
+      "fullName": "Amazon Virtual Private Cloud",
+      "eventSourcePrefix": "ec2.amazonaws.com",
+      "docsUrl": "https://docs.aws.amazon.com/vpc/latest/userguide/",
+      "operationsUrl": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Operations.html",
+      "pagePrefix": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/",
+      "virtual": true
+    },
+    {
+      "id": "rds",
+      "name": "RDS",
+      "fullName": "Amazon Relational Database Service",
+      "eventSourcePrefix": "rds.amazonaws.com",
+      "docsUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/logging-using-cloudtrail.html",
+      "operationsUrl": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Operations.html",
+      "pagePrefix": "https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/"
+    }
+  ]
+}

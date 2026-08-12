@@ -1,0 +1,184 @@
+{
+  "iam": [
+    { "section": "Instance Profiles", "patterns": ["InstanceProfile"] },
+    { "section": "Groups", "patterns": ["Group"] },
+    { "section": "Roles", "patterns": ["Role"] },
+    {
+      "section": "MFA & Credentials",
+      "patterns": [
+        "MFADevice",
+        "VirtualMFADevice",
+        "SAMLProvider",
+        "OpenIDConnectProvider",
+        "ServerCertificate",
+        "SSHPublicKey",
+        "SigningCertificate",
+        "ServiceSpecificCredential"
+      ]
+    },
+    {
+      "section": "Account Settings",
+      "patterns": [
+        "AccountAlias",
+        "AccountPasswordPolicy",
+        "AccountSummary",
+        "Organizations",
+        "CredentialReport",
+        "SecurityTokenServicePreferences"
+      ]
+    },
+    {
+      "section": "Delegation & Federation",
+      "patterns": ["DelegationRequest", "OutboundWebIdentityFederation"]
+    },
+    {
+      "section": "Policies",
+      "patterns": [
+        "Policy",
+        "PermissionsBoundary",
+        "ContextKeys",
+        "Simulate",
+        "ServiceLastAccessed",
+        "AccountAuthorizationDetails"
+      ]
+    },
+    {
+      "section": "Users",
+      "patterns": ["User", "AccessKey", "LoginProfile", "ChangePassword"]
+    },
+    { "section": "Other", "patterns": [] }
+  ],
+  "sts": [{ "section": "Credentials & Sessions", "patterns": [] }],
+  "ec2": [
+    {
+      "section": "Instance Status & Metadata",
+      "patterns": ["InstanceStatus", "InstanceMetadata"]
+    },
+    {
+      "section": "Capacity & Reservations",
+      "patterns": ["CapacityReservation", "ReservedInstances", "Host", "SavingsPlan"]
+    },
+    {
+      "section": "Fleets & Launch Templates",
+      "patterns": ["Fleet", "LaunchTemplate", "FastLaunch"]
+    },
+    {
+      "section": "Spot & Scheduled",
+      "patterns": ["Spot", "ScheduledInstance"]
+    },
+    {
+      "section": "Networking & VPC",
+      "patterns": [
+        "Vpc",
+        "VPC",
+        "Subnet",
+        "RouteTable",
+        "InternetGateway",
+        "EgressOnly",
+        "NatGateway",
+        "SecurityGroup",
+        "NetworkAcl",
+        "NetworkInterface",
+        "ElasticIp",
+        "Vpn",
+        "CustomerGateway",
+        "TransitGateway",
+        "Endpoint",
+        "Peering",
+        "FlowLogs",
+        "PrefixList",
+        "Ipam",
+        "DhcpOptions",
+        "CarrierGateway",
+        "LocalGateway",
+        "ClientVpn",
+        "NetworkInsights",
+        "VerifiedAccess",
+        "TrafficMirror",
+        "Address",
+        "ByoipCidr",
+        "Pool",
+        "Network",
+        "Gateway",
+        "SerialConsole",
+        "Enclave",
+        "ClassicLink"
+      ]
+    },
+    {
+      "section": "Load Balancing",
+      "patterns": ["LoadBalancer", "TargetGroup", "Listener"]
+    },
+    {
+      "section": "Import & Export",
+      "patterns": ["ImportTask", "ExportTask", "BundleTask"]
+    },
+    { "section": "Key Pairs", "patterns": ["KeyPair"] },
+    {
+      "section": "Monitoring & Observability",
+      "patterns": ["Metric", "Monitor", "ConsoleOutput", "ConsoleScreenshot"]
+    },
+    { "section": "Tags", "patterns": ["TagResource", "UntagResource", "Tags"] },
+    {
+      "section": "Regions & Placement",
+      "patterns": ["Region", "AvailabilityZone", "Outpost", "PlacementGroup", "LocalZone"]
+    },
+    { "section": "Instances", "patterns": ["Instance"] },
+    { "section": "Images", "patterns": ["Image"] },
+    { "section": "Volumes & Snapshots", "patterns": ["Volume", "Snapshot"] },
+    { "section": "Other", "patterns": [] }
+  ],
+  "rds": [
+    { "section": "Tags", "patterns": ["Tags"] },
+    { "section": "Proxies", "patterns": ["DBProxy"] },
+    {
+      "section": "Blue-Green & Integrations",
+      "patterns": ["BlueGreen", "Integration"]
+    },
+    {
+      "section": "Events & Notifications",
+      "patterns": ["Event", "Subscription"]
+    },
+    {
+      "section": "Snapshots, Backups & Restores",
+      "patterns": ["Snapshot", "Backup", "Restore", "PointInTime", "AutomatedBackup"]
+    },
+    {
+      "section": "Groups & Security",
+      "patterns": ["ParameterGroup", "OptionGroup", "SubnetGroup", "SecurityGroup"]
+    },
+    { "section": "Reserved Instances", "patterns": ["ReservedDBInstance"] },
+    { "section": "Export & Import", "patterns": ["ExportTask", "FromS3"] },
+    {
+      "section": "Performance & Maintenance",
+      "patterns": [
+        "Recommendation",
+        "ActivityStream",
+        "LogFiles",
+        "LogFile",
+        "PerformanceInsights",
+        "HttpEndpoint",
+        "Maintenance",
+        "Certificates"
+      ]
+    },
+    {
+      "section": "Account & Metadata",
+      "patterns": [
+        "AccountAttributes",
+        "EngineDefault",
+        "EngineVersions",
+        "OrderableDBInstanceOptions",
+        "SourceRegions",
+        "ServerlessV2PlatformVersions",
+        "CustomDBEngineVersion"
+      ]
+    },
+    { "section": "DB Clusters", "patterns": ["DBCluster", "GlobalCluster"] },
+    {
+      "section": "DB Instances",
+      "patterns": ["DBInstance", "ShardGroup", "TenantDatabase"]
+    },
+    { "section": "Other", "patterns": [] }
+  ]
+}
