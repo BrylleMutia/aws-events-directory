@@ -25,7 +25,7 @@ export function EventRow({ event, anchor, showService, showVpcBadge }: Props) {
         className="group flex min-w-0 flex-1 items-center gap-1.5 self-stretch"
         title={`Open ${event.name} in the AWS API Reference`}
       >
-        <span className="truncate font-mono text-sm font-medium text-ink group-hover:text-accent-ink-strong sm:text-[13px]">
+        <span className="min-w-0 flex-1 whitespace-nowrap overflow-x-auto font-mono text-sm font-medium text-ink group-hover:text-accent-ink-strong sm:truncate sm:text-[13px]">
           {event.name}
         </span>
         <svg
