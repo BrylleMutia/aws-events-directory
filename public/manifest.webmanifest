@@ -1,0 +1,16 @@
+{
+  "name": "aws-events-directory",
+  "short_name": "aws-events-directory",
+  "description": "Searchable directory of CloudTrail events from core AWS services: IAM, STS, EC2, VPC, and RDS.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fafafa",
+  "theme_color": "#f9c9dc",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
