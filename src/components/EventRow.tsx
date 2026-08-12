@@ -22,7 +22,7 @@ export function EventRow({ event, anchor, showService, showVpcBadge }: Props) {
         href={event.url}
         target="_blank"
         rel="noreferrer"
-        className="group flex min-w-0 flex-1 items-center gap-1.5"
+        className="group flex min-w-0 flex-1 items-center gap-1.5 self-stretch"
         title={`Open ${event.name} in the AWS API Reference`}
       >
         <span className="truncate font-mono text-sm font-medium text-ink group-hover:text-accent-ink-strong sm:text-[13px]">

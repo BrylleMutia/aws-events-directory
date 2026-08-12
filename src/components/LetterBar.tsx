@@ -12,7 +12,7 @@ export function LetterBar({ letters, onJump }: Props) {
           key={letter}
           type="button"
           onClick={() => onJump(letter)}
-          className="h-9 w-9 shrink-0 rounded-md font-mono text-sm text-muted transition-colors hover:bg-accent-tint hover:text-accent-ink-strong sm:h-7 sm:w-7 sm:text-xs"
+          className="h-10 w-10 shrink-0 rounded-md font-mono text-sm text-muted transition-colors hover:bg-accent-tint hover:text-accent-ink-strong sm:h-7 sm:w-7 sm:text-xs"
         >
           {letter}
         </button>

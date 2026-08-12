@@ -5,14 +5,14 @@
   --color-accent: #f9c9dc;
   --color-accent-deep: #f3aecb;
   --color-accent-tint: #fdf2f8;
-  --color-accent-ink: #be4d8d;
+  --color-accent-ink: #b94584;
   --color-accent-ink-strong: #9e3a73;
 
   /* Neutrals (zinc) */
   --color-ink: #18181b;
   --color-ink-soft: #3f3f46;
   --color-muted: #71717a;
-  --color-faint: #a1a1aa;
+  --color-faint: #6f6f79;
   --color-hairline: #e4e4e7;
   --color-paper: #fafafa;
   --color-card: #ffffff;
@@ -24,6 +24,20 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
 
 body {

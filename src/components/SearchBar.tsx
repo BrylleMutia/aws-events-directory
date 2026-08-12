@@ -8,7 +8,7 @@ interface Props {
 
 export function SearchBar({ value, onChange, total, shown, placeholder }: Props) {
   return (
-    <div className="relative">
+    <div className="relative w-full">
       <svg
         aria-hidden
         className="pointer-events-none absolute left-3.5 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-faint sm:h-4 sm:w-4"
@@ -32,7 +32,7 @@ export function SearchBar({ value, onChange, total, shown, placeholder }: Props)
         spellCheck={false}
         autoComplete="off"
         aria-label="Search events"
-        className="w-full rounded-lg border border-hairline bg-card py-2.5 pl-10 pr-20 text-[15px] text-ink placeholder:text-faint shadow-sm transition-colors focus:border-accent-deep focus:outline-none focus:ring-2 focus:ring-accent/60 sm:py-2 sm:pr-16 sm:text-sm"
+        className="w-full rounded-lg border border-hairline bg-card py-2.5 pl-10 pr-20 text-base text-ink placeholder:text-faint shadow-sm transition-colors focus:border-accent-deep focus:outline-none focus:ring-2 focus:ring-accent/60 sm:py-2 sm:pr-16 sm:text-sm"
       />
       <div className="absolute right-2 top-1/2 flex -translate-y-1/2 items-center gap-1.5">
         {value ? (

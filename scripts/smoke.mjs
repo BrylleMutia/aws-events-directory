@@ -107,16 +107,38 @@ const targets = await page.evaluate(() => {
   return {
     search: h('#search'),
     chips: h('button[aria-pressed]'),
+    select: h('select'),
     letter: h('nav[aria-label="Jump to letter"] button'),
     row: h('ul li'),
     copy: h('button[aria-label^="Copy"]'),
+    eventLink: h('main ul li a'),
+    searchFont: getComputedStyle(document.querySelector('#search')).fontSize,
+    selectFont: getComputedStyle(document.querySelector('select')).fontSize,
   }
 })
 check('mobile search input height', targets.search >= 44, `${targets.search}px`)
 check('mobile service chip height', targets.chips >= 44, `${targets.chips}px`)
-check('mobile letter button height', targets.letter >= 36, `${targets.letter}px`)
+check('mobile select height', targets.select >= 44, `${targets.select}px`)
+check('mobile letter button height', targets.letter >= 40, `${targets.letter}px`)
 check('mobile event row height', targets.row >= 44, `${targets.row}px`)
-check('mobile copy button height', targets.copy >= 40, `${targets.copy}px`)
+check('mobile event link fills row', targets.eventLink >= 44, `${targets.eventLink}px`)
+check('mobile copy button height', targets.copy >= 44, `${targets.copy}px`)
+check('mobile form text >= 16px', parseFloat(targets.searchFont) >= 16 && parseFloat(targets.selectFont) >= 16, `${targets.searchFont}/${targets.selectFont}`)
+
+/* 7b. search fills the content column on mobile */
+const searchWidth = await page.evaluate(() => {
+  const input = document.querySelector('#search')
+  const column = input.parentElement.getBoundingClientRect()
+  return input.getBoundingClientRect().width / column.width
+})
+check('mobile search is full width', searchWidth >= 0.95, `${Math.round(searchWidth * 100)}%`)
+
+/* 7c. viewport meta present (real-device responsiveness) */
+const metaViewport = await page.evaluate(() => {
+  const el = document.querySelector('meta[name="viewport"]')
+  return el?.getAttribute('content') ?? null
+})
+check('viewport meta present', /width=device-width/.test(metaViewport ?? ''), metaViewport ?? 'missing')
 
 /* 8. back-to-top appears after scrolling on mobile */
 await page.evaluate(() => window.scrollTo(0, 800))

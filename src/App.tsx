@@ -13,6 +13,10 @@ import { EmptyState } from './components/EmptyState'
 const events = (eventsData as EventsData).events
 const services = (servicesData as ServicesData).services
 
+function prefersReducedMotion(): boolean {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches
+}
+
 export default function App() {
   const dir = useEventDirectory(events, services)
   const serviceMap = useMemo(
@@ -35,7 +39,7 @@ export default function App() {
 
   const jump = (letter: string) => {
     document.getElementById(`evt-${letter}`)?.scrollIntoView({
-      behavior: 'smooth',
+      behavior: prefersReducedMotion() ? 'auto' : 'smooth',
       block: 'start',
     })
   }
@@ -163,7 +167,9 @@ export default function App() {
       {/* Mobile back-to-top */}
       <button
         type="button"
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        onClick={() =>
+          window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' })
+        }
         aria-label="Back to top"
         className={`fixed bottom-5 right-5 z-30 flex h-11 w-11 items-center justify-center rounded-full border border-accent-deep bg-accent text-ink shadow-md transition-all ${
           showTop ? 'opacity-100' : 'pointer-events-none opacity-0'

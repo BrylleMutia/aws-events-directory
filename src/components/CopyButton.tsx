@@ -19,7 +19,7 @@ export function CopyButton({ text }: { text: string }) {
       onClick={copy}
       aria-label={`Copy ${text}`}
       title="Copy event name"
-      className={`rounded-md p-3 transition-colors sm:p-1.5 ${
+      className={`rounded-md p-3.5 transition-colors sm:p-1.5 ${
         copied ? 'text-accent-ink-strong' : 'text-faint hover:bg-zinc-100 hover:text-ink'
       }`}
     >

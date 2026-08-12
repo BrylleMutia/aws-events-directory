@@ -33,7 +33,7 @@ export function ServiceChips({ services, selected, counts, totals, onChange }: P
             }`}
           >
             <span className="font-mono text-xs font-semibold sm:text-[11px]">{svc.name}</span>
-            <span className={`text-xs tabular-nums sm:text-[11px] ${active ? 'text-accent-ink' : 'text-faint'}`}>
+            <span className={`text-xs tabular-nums sm:text-[11px] ${active ? 'text-accent-ink-strong' : 'text-faint'}`}>
               {count}{count !== total ? `/${total}` : ''}
             </span>
           </button>

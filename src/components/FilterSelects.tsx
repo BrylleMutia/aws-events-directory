@@ -8,7 +8,7 @@ interface Props {
 }
 
 const selectClass =
-  'w-full appearance-none rounded-md border border-hairline bg-card px-3 py-2.5 text-sm text-ink-soft shadow-sm transition-colors focus:border-accent-deep focus:outline-none focus:ring-2 focus:ring-accent/60 sm:w-auto sm:py-1.5 sm:text-xs'
+  'w-full appearance-none rounded-md border border-hairline bg-card px-3 py-3 text-base text-ink-soft shadow-sm transition-colors focus:border-accent-deep focus:outline-none focus:ring-2 focus:ring-accent/60 sm:w-auto sm:py-1.5 sm:text-xs'
 
 export function FilterSelects({ sections, verbs, section, verb, onSection, onVerb }: Props) {
   return (
