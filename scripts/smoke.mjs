@@ -98,6 +98,60 @@ await page.goto(URL, { waitUntil: 'networkidle0' })
 const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)
 check('no horizontal overflow on mobile', overflow <= 0, `overflow=${overflow}px`)
 
+/* 7. mobile tap targets are comfortably sized */
+const targets = await page.evaluate(() => {
+  const h = (sel) => {
+    const el = document.querySelector(sel)
+    return el ? Math.round(el.getBoundingClientRect().height) : null
+  }
+  return {
+    search: h('#search'),
+    chips: h('button[aria-pressed]'),
+    letter: h('nav[aria-label="Jump to letter"] button'),
+    row: h('ul li'),
+    copy: h('button[aria-label^="Copy"]'),
+  }
+})
+check('mobile search input height', targets.search >= 44, `${targets.search}px`)
+check('mobile service chip height', targets.chips >= 44, `${targets.chips}px`)
+check('mobile letter button height', targets.letter >= 36, `${targets.letter}px`)
+check('mobile event row height', targets.row >= 44, `${targets.row}px`)
+check('mobile copy button height', targets.copy >= 40, `${targets.copy}px`)
+
+/* 8. back-to-top appears after scrolling on mobile */
+await page.evaluate(() => window.scrollTo(0, 800))
+await new Promise((r) => setTimeout(r, 400))
+const topBtn = await page.evaluate(() => {
+  const b = document.querySelector('button[aria-label="Back to top"]')
+  return b ? getComputedStyle(b).opacity !== '0' : false
+})
+check('back-to-top appears after scroll', topBtn)
+
+/* 9. service chips stay sticky on mobile (search + chips in fixed zone) */
+const stickyZone = await page.evaluate(() => {
+  const search = document.querySelector('#search')
+  const chip = document.querySelector('button[aria-pressed]')
+  const searchRect = search?.getBoundingClientRect()
+  const chipRect = chip?.getBoundingClientRect()
+  const stickyTop = chip?.closest('div.sticky')?.getBoundingClientRect().top ?? -1
+  return {
+    searchInSticky: !!search?.closest('div.sticky'),
+    chipInSticky: !!chip?.closest('div.sticky'),
+    searchTop: Math.round(searchRect?.top ?? -1),
+    chipTop: Math.round(chipRect?.top ?? -1),
+    stickyTop: Math.round(stickyTop),
+  }
+})
+check(
+  'search and chips in sticky zone on mobile',
+  stickyZone.searchInSticky &&
+    stickyZone.chipInSticky &&
+    stickyZone.searchTop >= stickyZone.stickyTop &&
+    stickyZone.chipTop > stickyZone.searchTop &&
+    stickyZone.chipTop <= stickyZone.stickyTop + 120,
+  `search=${stickyZone.searchTop} chip=${stickyZone.chipTop} sticky=${stickyZone.stickyTop}`,
+)
+
 await browser.close()
 
 const failed = results.filter((r) => !r.ok)

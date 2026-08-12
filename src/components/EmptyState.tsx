@@ -13,15 +13,15 @@ export function EmptyState({ onReset }: Props) {
         </svg>
       </span>
       <div>
-        <p className="text-sm font-medium text-ink">No events match your filters</p>
-        <p className="mt-1 text-xs text-muted">
+        <p className="text-base font-medium text-ink sm:text-sm">No events match your filters</p>
+        <p className="mt-1 text-sm text-muted sm:text-xs">
           Try a different search term, or clear the filters to see everything again.
         </p>
       </div>
       <button
         type="button"
         onClick={onReset}
-        className="rounded-md border border-accent-deep bg-accent-tint px-3 py-1.5 text-xs font-medium text-accent-ink-strong transition-colors hover:bg-accent/40"
+        className="rounded-md border border-accent-deep bg-accent-tint px-4 py-2.5 text-sm font-medium text-accent-ink-strong transition-colors hover:bg-accent/40 sm:px-3 sm:py-1.5 sm:text-xs"
       >
         Clear all filters
       </button>

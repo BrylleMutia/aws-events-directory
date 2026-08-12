@@ -23,14 +23,14 @@ export function GroupSection({
 
   return (
     <section aria-label={`${group.service} — ${group.section}`}>
-      <h3 className="sticky top-14 z-10 -mx-4 flex items-baseline gap-2 border-b border-hairline bg-paper/95 px-4 py-1.5 backdrop-blur sm:mx-0 sm:px-0">
+      <h3 className="sticky top-[113px] z-10 -mx-4 flex items-baseline gap-2 border-b border-hairline bg-paper/95 px-4 py-2 backdrop-blur sm:top-14 sm:mx-0 sm:px-0 sm:py-1.5">
         {showService && svc && (
-          <span className="font-mono text-xs font-semibold text-accent-ink-strong">
+          <span className="font-mono text-sm font-semibold text-accent-ink-strong sm:text-xs">
             {svc.name}
           </span>
         )}
-        <span className="text-sm font-medium text-ink">{group.section}</span>
-        <span className="text-xs tabular-nums text-faint">{group.events.length}</span>
+        <span className="text-[15px] font-medium text-ink sm:text-sm">{group.section}</span>
+        <span className="text-sm tabular-nums text-faint sm:text-xs">{group.events.length}</span>
       </h3>
       <ul>
         {group.events.map((ev) => (

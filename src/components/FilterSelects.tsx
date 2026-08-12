@@ -8,7 +8,7 @@ interface Props {
 }
 
 const selectClass =
-  'w-full appearance-none rounded-md border border-hairline bg-card px-3 py-1.5 text-xs text-ink-soft shadow-sm transition-colors focus:border-accent-deep focus:outline-none focus:ring-2 focus:ring-accent/60 sm:w-auto'
+  'w-full appearance-none rounded-md border border-hairline bg-card px-3 py-2.5 text-sm text-ink-soft shadow-sm transition-colors focus:border-accent-deep focus:outline-none focus:ring-2 focus:ring-accent/60 sm:w-auto sm:py-1.5 sm:text-xs'
 
 export function FilterSelects({ sections, verbs, section, verb, onSection, onVerb }: Props) {
   return (
@@ -29,7 +29,7 @@ export function FilterSelects({ sections, verbs, section, verb, onSection, onVer
         </select>
         <svg
           aria-hidden
-          className="pointer-events-none absolute right-2.5 top-1/2 h-3 w-3 -translate-y-1/2 text-faint"
+          className="pointer-events-none absolute right-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-faint sm:right-2.5 sm:h-3 sm:w-3"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -56,7 +56,7 @@ export function FilterSelects({ sections, verbs, section, verb, onSection, onVer
         </select>
         <svg
           aria-hidden
-          className="pointer-events-none absolute right-2.5 top-1/2 h-3 w-3 -translate-y-1/2 text-faint"
+          className="pointer-events-none absolute right-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-faint sm:right-2.5 sm:h-3 sm:w-3"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"

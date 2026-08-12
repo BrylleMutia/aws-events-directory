@@ -33,16 +33,52 @@ body {
   font-feature-settings: "cv02", "cv03", "cv04";
 }
 
+/* Mobile: larger base text for readability */
+@media (max-width: 639px) {
+  body {
+    font-size: 15px;
+  }
+}
+
 ::selection {
   @apply bg-accent text-ink;
 }
 
-/* Thin, subtle scrollbars for horizontal chip rows */
-.no-scrollbar {
-  scrollbar-width: none;
+/* Prominent pastel-pink scrollbars (WebKit/Blink) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
 }
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
+::-webkit-scrollbar-track {
+  background: var(--color-paper);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--color-accent),
+    var(--color-accent-deep)
+  );
+  border: 2px solid var(--color-paper);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-deep);
+}
+::-webkit-scrollbar-corner {
+  background: var(--color-paper);
+}
+
+/* Firefox */
+* {
+  scrollbar-color: var(--color-accent-deep) var(--color-paper);
+}
+
+/* Mobile: thicker, easier to grab */
+@media (max-width: 639px) {
+  ::-webkit-scrollbar {
+    width: 14px;
+    height: 12px;
+  }
 }
 
 /* Keep the page feel of a dev-docs page: max width column */

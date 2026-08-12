@@ -1,7 +1,7 @@
-import { useEffect, useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import eventsData from './data/events.json'
 import servicesData from './data/services.json'
-import type { EventsData, ServicesData } from './types'
+import type { EventsData, ServicesData, ServiceId } from './types'
 import { useEventDirectory } from './hooks/useEventDirectory'
 import { SearchBar } from './components/SearchBar'
 import { ServiceChips } from './components/ServiceChips'
@@ -45,6 +45,22 @@ export default function App() {
     dir.filters.services.length === 1 && dir.filters.services[0] === 'vpc'
   const { meta } = eventsData as EventsData
 
+  /* mobile-only back-to-top button */
+  const [showTop, setShowTop] = useState(false)
+  useEffect(() => {
+    const onScroll = () => setShowTop(window.scrollY > 400)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const chipsProps = {
+    services,
+    selected: dir.filters.services,
+    counts: dir.serviceCounts,
+    totals: dir.totalCounts,
+    onChange: (svc: ServiceId[]) => dir.setFilters((f) => ({ ...f, services: svc })),
+  }
+
   return (
     <div className="min-h-dvh">
       {/* Brand row (scrolls away) */}
@@ -55,10 +71,10 @@ export default function App() {
             className="h-6 w-6 rounded-md bg-gradient-to-br from-accent to-accent-deep"
           />
           <div>
-            <h1 className="text-sm font-semibold leading-tight text-ink">
+            <h1 className="text-base font-semibold leading-tight text-ink sm:text-sm">
               AWS Events Directory
             </h1>
-            <p className="text-xs leading-tight text-muted">
+            <p className="text-[13px] leading-tight text-muted sm:text-xs">
               CloudTrail events from the core building blocks of AWS
             </p>
           </div>
@@ -78,8 +94,8 @@ export default function App() {
         </div>
       </header>
 
-      {/* Sticky search bar */}
-      <div className="sticky top-0 z-20 mt-4 h-14 border-b border-hairline bg-paper/95 backdrop-blur">
+      {/* Sticky search bar + service chips (mobile) */}
+      <div className="sticky top-0 z-20 mt-4 border-b border-hairline bg-paper/95 backdrop-blur">
         <div className="page flex h-14 items-center">
           <SearchBar
             value={dir.filters.q}
@@ -88,18 +104,17 @@ export default function App() {
             shown={dir.filtered.length}
           />
         </div>
+        <div className="page flex h-14 items-center sm:hidden">
+          <ServiceChips {...chipsProps} />
+        </div>
       </div>
 
       <main className="page pb-24">
         {/* Filters */}
         <div className="flex flex-col gap-2 py-3">
-          <ServiceChips
-            services={services}
-            selected={dir.filters.services}
-            counts={dir.serviceCounts}
-            totals={dir.totalCounts}
-            onChange={(svc) => dir.setFilters((f) => ({ ...f, services: svc }))}
-          />
+          <div className="hidden sm:block">
+            <ServiceChips {...chipsProps} />
+          </div>
           <FilterSelects
             sections={dir.sections}
             verbs={dir.verbs}
@@ -144,6 +159,29 @@ export default function App() {
           </p>
         </footer>
       </main>
+
+      {/* Mobile back-to-top */}
+      <button
+        type="button"
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Back to top"
+        className={`fixed bottom-5 right-5 z-30 flex h-11 w-11 items-center justify-center rounded-full border border-accent-deep bg-accent text-ink shadow-md transition-all sm:hidden ${
+          showTop ? 'opacity-100' : 'pointer-events-none opacity-0'
+        }`}
+      >
+        <svg
+          aria-hidden
+          className="h-5 w-5"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="m18 15-6-6-6 6" />
+        </svg>
+      </button>
     </div>
   )
 }

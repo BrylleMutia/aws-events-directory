@@ -14,8 +14,8 @@ export function EventRow({ event, anchor, showService, showVpcBadge }: Props) {
   return (
     <li
       id={anchor ? `evt-${letter}` : undefined}
-      className={`flex items-center gap-2 border-b border-hairline/70 px-1 py-1.5 transition-colors hover:bg-accent-tint/50 ${
-        anchor ? 'scroll-mt-20' : ''
+      className={`flex items-center gap-2 border-b border-hairline/70 px-1 py-2.5 transition-colors hover:bg-accent-tint/50 sm:py-1.5 ${
+        anchor ? 'scroll-mt-[7.5rem] sm:scroll-mt-20' : ''
       }`}
     >
       <a
@@ -25,7 +25,7 @@ export function EventRow({ event, anchor, showService, showVpcBadge }: Props) {
         className="group flex min-w-0 flex-1 items-center gap-1.5"
         title={`Open ${event.name} in the AWS API Reference`}
       >
-        <span className="truncate font-mono text-[13px] font-medium text-ink group-hover:text-accent-ink-strong">
+        <span className="truncate font-mono text-sm font-medium text-ink group-hover:text-accent-ink-strong sm:text-[13px]">
           {event.name}
         </span>
         <svg
@@ -50,7 +50,7 @@ export function EventRow({ event, anchor, showService, showVpcBadge }: Props) {
 
       {showService && (
         <span
-          className={`shrink-0 rounded-full px-2 py-0.5 font-mono text-[10px] font-semibold ${
+          className={`shrink-0 rounded-full px-2.5 py-1 text-[11px] font-semibold sm:px-2 sm:py-0.5 sm:text-[10px] ${
             event.service === 'vpc'
               ? 'bg-accent-tint text-accent-ink-strong'
               : 'bg-zinc-100 text-zinc-500'
@@ -61,7 +61,7 @@ export function EventRow({ event, anchor, showService, showVpcBadge }: Props) {
       )}
 
       {showVpcBadge && (
-        <span className="shrink-0 rounded-full border border-accent/50 bg-accent-tint px-2 py-0.5 font-mono text-[10px] font-semibold text-accent-ink-strong">
+        <span className="shrink-0 rounded-full border border-accent/50 bg-accent-tint px-2.5 py-1 text-[11px] font-semibold text-accent-ink-strong sm:px-2 sm:py-0.5 sm:text-[10px]">
           VPC
         </span>
       )}
